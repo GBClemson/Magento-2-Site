@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SeedPark_01.Models.Products>
+
+@{
+    ViewData["Title"] = "Products - Seeds";
+}
+
+<div class="row">
+    <div class="section-title">
+        <h2>All Seeds</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+
+        <div class="product col-md-3">
+            <div class="row">
+                <img src="../images/l/@item.ImageLink" alt="@item.ImageLink" class="col-xs-12 img-responsive" />
+            </div>
+            <div class="row item-price">
+                <a class="col-xs-8" asp-route-id="../Details/@item.ID">@Html.DisplayFor(modelItem => item.Title)</a>
+                <h4 class="col-xs-4 text-right">@Html.DisplayFor(modelItem => item.Price)</h4>
+            </div>
+            <div class="row short-description">
+                <p class="col-xs-12">@Html.DisplayFor(modelItem => item.Tagline)</p>
+            </div>
+        </div>
+
+    }
+</div>
